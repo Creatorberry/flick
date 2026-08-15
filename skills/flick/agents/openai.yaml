@@ -1,0 +1,4 @@
+interface:
+  display_name: "Flick"
+  short_description: "Turn scripts into animated short videos"
+  default_prompt: "Use $flick to turn this video or script into an animated short video."

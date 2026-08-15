@@ -1,0 +1,15 @@
+node_modules/
+dist/
+out/
+.DS_Store
+*.log
+__pycache__/
+flick-project/
+!flick-project/.gitkeep
+**/brand-assets/*
+!**/brand-assets/.gitkeep
+**/saved-animations/*
+!**/saved-animations/.gitkeep
+**/transcript.json
+**/scene-spec.json
+!skills/flick/assets/starter-remotion/src/data/scene-spec.json
