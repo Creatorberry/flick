@@ -12,6 +12,10 @@ Flick is an open-source skill pack for Codex and Claude Code. It transcribes a s
 4. Approve the scene plan, then build and preview it in Remotion Studio.
 5. Recommend changes and save selected animations as reusable components.
 
+## Examples
+
+See the [Flick examples gallery](examples/) for six animations made with Flick, including [China OCR hook](examples/china-ocr-hook/), [Claude token waste](examples/claude-token-waste/), and [Gstack workflow](examples/workflow-start-to-finish/).
+
 ## Install
 
 Install the `flick`, `transcript-extractor`, `scene-generator`, and `scene-builder` skills from this repository with your agent's skills installer. The repository exposes the canonical skills in `skills/`; `.agents/skills/` and `.claude/skills/` point to the same sources for Codex and Claude Code discovery.
