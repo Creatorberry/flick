@@ -2,6 +2,8 @@
 
 Turn a source video or script into a reviewable short-form animation with an AI video director.
 
+An open-source project from [Creatorberry](https://www.creatorberry.com/).
+
 Flick is one open-source skill for Codex and Claude Code. It transcribes a supplied video when needed, asks the creative questions that shape the edit, builds a portable Remotion project, and opens Remotion Studio for review.
 
 ## The workflow
@@ -11,6 +13,10 @@ Flick is one open-source skill for Codex and Claude Code. It transcribes a suppl
 3. Flick asks for aspect ratio, brand assets, and your creative opinion.
 4. Approve the scene plan, then build and preview it in Remotion Studio.
 5. Recommend changes and save selected animations as reusable components.
+
+## Start with the right source
+
+Flick turns a video, transcript, or script into a motion animation. If you need to find source content or develop an idea first, [Creatorberry](https://www.creatorberry.com/) helps you find what is viral, script it, and post it.
 
 ## Examples
 
@@ -70,3 +76,7 @@ Flick welcomes showcase examples made with Flick. Creatorberry maintains the cor
 ## License
 
 MIT
+
+---
+
+Built by [Creatorberry](https://www.creatorberry.com/).
