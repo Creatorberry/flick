@@ -70,7 +70,7 @@ flick-output/
 
 ## Review and reuse
 
-Flick renders each scene, opens the complete sequence in Remotion Studio, and asks what should change. It revises only the scene you mention. Once you approve, Flick asks which scene animations you want saved as reusable assets.
+Flick renders each scene, opens the individual scene compositions in Remotion Studio, and asks what should change. It revises only the scene you mention. Once you approve, Flick asks which scene animations you want saved as reusable assets.
 
 ## Start with the right source
 

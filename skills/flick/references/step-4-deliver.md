@@ -1,6 +1,6 @@
 # Step 4: Preview, revise, and save
 
-Render every scene before presenting the complete sequence:
+Render every scene before review:
 
 ```text
 node <flick-skill>/scripts/render-scene.mjs --project <output-directory> --composition <scene-id> --name <approved-scene-name>

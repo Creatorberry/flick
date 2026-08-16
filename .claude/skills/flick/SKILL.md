@@ -97,9 +97,9 @@ Write:
 <output-directory>/scene-spec.json
 ```
 
-`remotion-brief.md` is the approved build handoff. `scene-spec.json` is the structured technical version of the approved scenes: IDs, names, transcript timing, frame ranges, components, assets, visual behavior, and sound effects.
+`remotion-brief.md` is the approved build handoff. Write it using [references/remotion-brief-template.md](references/remotion-brief-template.md). `scene-spec.json` is the structured technical companion: IDs, names, transcript timing, frame ranges, components, assets, visual behavior, and sound effects.
 
-Build one named Remotion composition per approved scene under `<output-directory>/remotion/src/scenes/`, plus one all-scenes composition for Studio review. Use frame-driven Remotion motion and copy only selected user brand assets into the Remotion public folder.
+Build one named Remotion composition per approved scene under `<output-directory>/remotion/src/scenes/`. Register each independently in `Root.tsx`; do not create an all-scenes composition. Use frame-driven Remotion motion and copy only selected user brand assets into the Remotion public folder.
 
 Do not add background music. Use bundled sound effects only when they match a visible action: typing, click, impact, reveal, counter, or transition.
 
