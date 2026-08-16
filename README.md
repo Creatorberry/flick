@@ -43,6 +43,10 @@ Flick creates a `flick-project/` workspace containing `brand-assets/`, `saved-an
 
 Use only video, images, fonts, and audio that you have the right to use. Brand assets stay inside your local Flick workspace and are not committed by default.
 
+## Contributing
+
+Flick welcomes showcase examples made with Flick. Creatorberry maintains the core skills, scripts, and workflow. See [CONTRIBUTING.md](CONTRIBUTING.md).
+
 ## License
 
 MIT
