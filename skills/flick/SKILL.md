@@ -5,11 +5,40 @@ description: Turn a supplied video, public video URL, or transcript into origina
 
 # /flick
 
-Flick is the only public entry skill. Run its transcription, planning, Remotion build, preview, revision, and reusable-animation workflow inside this skill. Do not require the user to install or invoke supporting skills.
+Turn a transcript into original scene animations.
 
-## Invocation and workspace
+## Invocation dispatch — do this first
 
-Recognize `/flick` in Claude Code and `$flick` in Codex. Create `flick-output/` in the current project. If it already exists, create `flick-output-YYYY-MM-DD-HHmmss/` and use that directory for the complete run.
+Recognize `/flick` in Claude Code and `$flick` in Codex. Flick is one public skill: run transcription, planning, Remotion building, preview, revision, and reusable-animation saving inside this workflow. Do not require the user to install or invoke supporting skills.
+
+## What this skill does
+
+1. Gets a video, public video link, or pasted transcript.
+2. Creates the timestamped transcript when the source is video.
+3. Asks for aspect ratio, brand assets, and the user's creative opinion.
+4. Writes an approval plan with one proposed animation per transcript scene.
+5. Builds the approved scenes in Remotion with action-matched sound effects.
+6. Opens Remotion Studio for review, revises the affected scene, and saves selected animations for reuse.
+
+## Output directory
+
+Create `flick-output/` in the user's current project. If that directory already exists, create `flick-output-YYYY-MM-DD-HHmmss/`. Use one output directory consistently for every file in that run.
+
+The completed run contains:
+
+```text
+flick-output/
+  transcript.json
+  flick-plan.md
+  remotion-brief.md
+  scene-spec.json
+  brand-assets/
+  remotion/
+  scenes/[approved-scene-name]/[approved-scene-name].mp4
+  saved-animations/
+```
+
+## Workspace setup
 
 Run:
 
@@ -17,22 +46,79 @@ Run:
 node <flick-skill>/scripts/bootstrap.mjs --project <output-directory>
 ```
 
-Bootstrap creates `brand-assets/`, `scenes/`, `saved-animations/`, and `remotion/`; it installs Remotion, bundled FFmpeg, Whisper, yt-dlp, and Flick's bundled sound effects. It requires Node.js 20+, Python 3, and network access. If Node or Python is missing, use the install guidance printed by bootstrap and ask before running a system installer.
+Bootstrap creates the workspace and installs Remotion, bundled FFmpeg, Whisper, yt-dlp, and Flick's bundled sound effects. It requires Node.js 20+, Python 3.9+, and network access. If Node or Python is missing, show the install guidance printed by bootstrap and ask before running a system installer.
 
-Read the workflow reference named for each stage:
+## Step 1: Create the transcript
 
-1. [Transcript](references/step-1-transcript.md)
-2. [Plan](references/step-2-plan.md)
-3. [Compose](references/step-3-compose.md)
-4. [Preview, revision, and delivery](references/step-4-deliver.md)
+Read [references/step-1-transcript.md](references/step-1-transcript.md).
 
-## Hard rules
+Ask exactly:
 
-- The transcript is always the script Flick animates.
-- Ask only for aspect ratio, brand assets, and the user's opinion after the transcript exists.
-- Use transcript timings unless the user explicitly asks to alter duration.
-- Do not add background music.
-- Use bundled sound effects only when they match a visible event.
-- Do not build before the user approves `flick-plan.md`.
-- Name scene folders, components, and renders from approved scene names; never invent generic output names.
-- Do not claim Studio or a preview opened unless its command succeeded.
+> Send a video/link to transcribe, or paste a transcript.
+
+For video or a public link, run transcription and create `<output-directory>/transcript.json`. For pasted text, store it in the same `transcript.json` format. The transcript is always the script Flick animates.
+
+Then ask exactly, in this order:
+
+1. What aspect ratio should this be: 9:16, 16:9, 1:1, or custom?
+2. Put any logo, fonts, screenshots, product images, or brand guide into `<output-directory>/brand-assets/`. What should I use?
+3. What do you think? Your opinion will make your animation much better.
+
+Gate: `transcript.json` exists and the user has answered those three questions.
+
+## Step 2: Plan and get approval
+
+Read [references/step-2-plan.md](references/step-2-plan.md).
+
+Write `<output-directory>/flick-plan.md`. It is the user-facing creative contract. For every transcript scene, include its approved scene name, transcript line(s) and timestamps, proposed visible animation, selected brand assets, and sound effects tied to visible actions.
+
+Show the complete plan in chat and ask:
+
+> Here are the scenes Flick will build from your transcript. Approve them, or tell me what to change.
+
+Do not write Remotion components before approval.
+
+Gate: `flick-plan.md` exists and the user has approved it.
+
+## Step 3: Build the approved scenes
+
+Read [references/step-3-compose.md](references/step-3-compose.md).
+
+Write:
+
+```text
+<output-directory>/remotion-brief.md
+<output-directory>/scene-spec.json
+```
+
+`remotion-brief.md` is the approved build handoff. `scene-spec.json` is the structured technical version of the approved scenes: IDs, names, transcript timing, frame ranges, components, assets, visual behavior, and sound effects.
+
+Build one named Remotion composition per approved scene under `<output-directory>/remotion/src/scenes/`, plus one all-scenes composition for Studio review. Use frame-driven Remotion motion and copy only selected user brand assets into the Remotion public folder.
+
+Do not add background music. Use bundled sound effects only when they match a visible action: typing, click, impact, reveal, counter, or transition.
+
+Render every named scene before review.
+
+Gate: every approved scene has a rendered preview in `scenes/[approved-scene-name]/`.
+
+## Step 4: Preview, revise, and save
+
+Read [references/step-4-deliver.md](references/step-4-deliver.md).
+
+Start Remotion Studio from `<output-directory>/remotion/`. Give the user the localhost URL only after Studio starts successfully, then say:
+
+> Watch it and tell me what you think. What should change, if anything?
+
+On feedback, revise only the affected scene, render that scene again, and reopen Studio. After acceptance, ask:
+
+> Which scene animations should I save as reusable assets?
+
+Save each selected scene's component, rendered preview, and metadata under `saved-animations/[approved-scene-name]/`.
+
+## Creative laws
+
+- The transcript defines scene timing unless the user explicitly asks to alter it.
+- Every scene must depict a concrete visual animation—not generic text over a background.
+- Use only user-supplied brand assets and source material the user has the right to use.
+- Do not invent generic scene names. Use names approved in `flick-plan.md`.
+- Do not claim a preview, render, or Studio session exists unless its command succeeded.
