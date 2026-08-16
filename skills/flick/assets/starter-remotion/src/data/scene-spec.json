@@ -4,22 +4,15 @@
   "fps": 30,
   "scenes": [
     {
-      "id": "scene-1",
+      "id": "approved-scene-name",
+      "name": "Approved scene name",
       "from": 0,
       "durationInFrames": 90,
-      "title": "Start with a story.",
-      "body": "Replace this sample with your approved Flick scene plan.",
+      "title": "Approved scene name",
+      "body": "Replace this with the approved transcript lines and scene animation.",
       "background": "#17151f",
-      "accent": "#ff7a59"
-    },
-    {
-      "id": "scene-2",
-      "from": 90,
-      "durationInFrames": 90,
-      "title": "Make it move.",
-      "body": "Use real brand assets, intentional timing, and feedback from the viewer.",
-      "background": "#25213a",
-      "accent": "#b3ff6e"
+      "accent": "#ff7a59",
+      "soundEffects": []
     }
   ]
 }

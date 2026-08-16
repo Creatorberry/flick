@@ -4,9 +4,9 @@ out/
 .DS_Store
 *.log
 __pycache__/
-flick-project/
+flick-output/
+flick-output-*/
 flick-*/
-!flick-project/.gitkeep
 **/brand-assets/*
 !**/brand-assets/.gitkeep
 **/saved-animations/*

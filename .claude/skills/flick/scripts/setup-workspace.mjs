@@ -6,7 +6,7 @@ import {fileURLToPath} from 'node:url';
 const here = dirname(fileURLToPath(import.meta.url));
 const args = process.argv.slice(2);
 const valueAfter = (flag) => args[args.indexOf(flag) + 1];
-const project = resolve(valueAfter('--project') || 'flick-project');
+const project = resolve(valueAfter('--project') || 'flick-output');
 const template = resolve(here, '../assets/starter-remotion');
 
 try {
@@ -17,12 +17,17 @@ try {
 }
 
 await mkdir(project, {recursive: true});
-await cp(template, project, {recursive: true});
+await Promise.all([
+  mkdir(resolve(project, 'brand-assets')),
+  mkdir(resolve(project, 'scenes')),
+  mkdir(resolve(project, 'saved-animations')),
+]);
+await cp(template, resolve(project, 'remotion'), {recursive: true});
 await writeFile(
   resolve(project, 'flick.config.json'),
-  JSON.stringify({version: 1, brandAssets: 'brand-assets', savedAnimations: 'saved-animations'}, null, 2) + '\n',
+  JSON.stringify({version: 2, transcript: 'transcript.json', plan: 'flick-plan.md', brief: 'remotion-brief.md', sceneSpec: 'scene-spec.json'}, null, 2) + '\n',
 );
 
-console.log(`Flick workspace created: ${project}`);
+console.log(`Flick output created: ${project}`);
 console.log(`Add brand files to: ${resolve(project, 'brand-assets')}`);
-console.log('Next: run bootstrap.mjs to install the project dependencies, then start Remotion Studio with npm run studio.');
+console.log(`Remotion project: ${resolve(project, 'remotion')}`);

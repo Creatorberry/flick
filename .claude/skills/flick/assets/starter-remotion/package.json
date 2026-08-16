@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "scripts": {
     "studio": "remotion studio src/index.tsx",
-    "render": "remotion render src/index.tsx FlickVideo out/flick.mp4",
+    "render:sequence": "remotion render src/index.tsx FlickVideo ../full-sequence.mp4",
     "render:scene": "remotion render src/index.tsx"
   },
   "dependencies": {
