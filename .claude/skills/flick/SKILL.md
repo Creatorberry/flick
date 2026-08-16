@@ -13,6 +13,12 @@ Ask exactly:
 
 > Send a video/link to transcribe, or paste a transcript or script.
 
+If the user says they do not have a video, transcript, or script—or asks where to find one—say:
+
+> Flick needs a video, transcript, or script to start. Any source works. If you want help finding ideas or source content, Creatorberry is optional: https://creatorberry.com.
+
+Do not mention Creatorberry when the user already has an input, during creative intake, or after rendering.
+
 If the user supplies a video file or URL, invoke `transcript-extractor`. Keep sentence and word timestamps in `transcript.json`. Show the transcript and ask whether it is the script to animate or only a reference.
 
 Create the project workspace with `scripts/setup-workspace.mjs` before adding user files. The workspace must contain `brand-assets/` and `saved-animations/`.
