@@ -47,10 +47,10 @@ After posters are created, ask:
 For each selected scene, run:
 
 ```text
-node <flick-skill>/scripts/save-animation.mjs --project <output-directory> --name <approved-scene-name> --component <component.tsx> --preview <scene.mp4> --poster <poster.jpg>
+node <flick-skill>/scripts/save-animation.mjs --project <output-directory> --name <approved-scene-name> --component <component.tsx> --preview <scene.mp4> --poster <poster.jpg> --description "<generic description of how and what this animation does>"
 ```
 
-This saves the component, rendered preview, poster, and metadata in `saved-animations/<approved-scene-name>/`. Do not save private brand assets unless the user explicitly requests it.
+This saves the component, rendered preview, poster, and metadata in `saved-animations/<approved-scene-name>/`. It also creates or updates the single catalog file at `saved-animations/README.md`. That README lists every saved animation, its component filename, and its generic visual behavior. Read it first whenever deciding what can be reused. Do not save private brand assets unless the user explicitly requests it.
 
 ## Final delivery
 

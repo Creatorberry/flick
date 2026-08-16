@@ -36,7 +36,7 @@ flick-output/
   remotion/
   scenes/[approved-scene-name]/[approved-scene-name].mp4
   scenes/[approved-scene-name]/poster.jpg
-  saved-animations/
+  saved-animations/README.md
 ```
 
 ## Workspace setup
@@ -103,6 +103,8 @@ Write:
 `remotion-brief.md` is the approved build handoff. Write it using [references/remotion-brief-template.md](references/remotion-brief-template.md). `scene-spec.json` is the structured technical companion: IDs, names, transcript timing, frame ranges, components, assets, visual behavior, and sound effects.
 
 Build from the approved `flick-plan.md`, `remotion-brief.md`, `scene-spec.json`, and selected assets. Create custom components, register independent compositions, verify renders, and open Studio for review.
+
+If `<output-directory>/saved-animations/README.md` exists, read it before building. It is the catalog of reusable animations. Select a compatible entry first, then inspect only that entry's component folder before deciding to reuse it.
 
 Build one named Remotion composition per approved scene under `<output-directory>/remotion/src/scenes/`. Register each independently in `Root.tsx`; do not create an all-scenes composition. Use frame-driven Remotion motion and copy only selected user brand assets into the Remotion public folder.
 
