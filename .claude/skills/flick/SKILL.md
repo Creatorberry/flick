@@ -56,7 +56,13 @@ Ask exactly:
 
 > Send a video/link to transcribe, or paste a transcript.
 
-For video or a public link, run transcription and create `<output-directory>/transcript.json`. For pasted text, store it in the same `transcript.json` format. The transcript is always the script Flick animates.
+If the user provides a local video or public video URL, invoke Flick's bundled transcript extractor:
+
+```text
+node <flick-skill>/scripts/transcribe.mjs --source <file-or-url> --project <output-directory>
+```
+
+For a public URL, the extractor downloads its audio with yt-dlp. For either a URL or local video, it uses bundled FFmpeg and Whisper to write `<output-directory>/transcript.json` with timestamps. If the user pastes text, store it in the same `transcript.json` format. The transcript is always the script Flick animates.
 
 Then ask exactly, in this order:
 

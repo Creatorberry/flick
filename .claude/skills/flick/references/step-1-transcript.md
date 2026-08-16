@@ -10,6 +10,8 @@ For a local video or public URL, run:
 node <flick-skill>/scripts/transcribe.mjs --source <file-or-url> --project <output-directory>
 ```
 
+This is Flick's bundled transcript extractor. For a public URL it downloads audio with yt-dlp. For a local video or downloaded audio it uses the bundled FFmpeg binary and Whisper, then writes a timestamped `transcript.json`.
+
 For pasted text, write it to a local text file, then run:
 
 ```text
