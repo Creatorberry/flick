@@ -76,7 +76,7 @@ Gate: `transcript.json` exists and the user has answered those three questions.
 
 Read [references/step-2-plan.md](references/step-2-plan.md).
 
-Write `<output-directory>/flick-plan.md`. It is the user-facing creative contract. For every transcript scene, include its approved scene name, transcript line(s) and timestamps, proposed visible animation, selected brand assets, and sound effects tied to visible actions.
+Write `<output-directory>/flick-plan.md`. It is the user-facing creative contract. For every transcript scene, include its approved scene name, transcript line(s) and timestamps, what is on screen, text on screen, selected supplied assets, sequential or simulated interaction, sound effect, audio-coupled idea, and transition.
 
 Show the complete plan in chat and ask:
 
