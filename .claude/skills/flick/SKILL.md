@@ -9,7 +9,7 @@ Turn a transcript into original scene animations.
 
 ## Invocation dispatch — do this first
 
-Recognize `/flick` in Claude Code and `$flick` in Codex. Flick is the only user-invoked workflow. It internally calls the bundled `transcript-extractor`, `scene-generator`, and `scene-builder` skills; do not ask the user to invoke those helpers.
+Recognize `/flick` in Claude Code and `$flick` in Codex. Flick runs transcription, planning, Remotion building, preview, revision, and reusable-animation saving in one workflow.
 
 ## What this skill does
 
@@ -76,7 +76,7 @@ Gate: `transcript.json` exists and the user has answered those three questions.
 
 Read [references/step-2-plan.md](references/step-2-plan.md).
 
-Call the bundled `scene-generator` skill internally with `transcript.json`, the approved format, selected brand assets, and the user's creative opinion. It creates the proposed scene plan; it must follow this step's plan format and must not create components or `scene-spec.json` before approval.
+Create the proposed scene plan from `transcript.json`, the approved format, selected brand assets, and the user's creative opinion. Follow this step's plan format. Do not create components or `scene-spec.json` before approval.
 
 Write `<output-directory>/flick-plan.md`. It is the user-facing creative contract. For every transcript scene, include its approved scene name, transcript line(s) and timestamps, what is on screen, text on screen, selected supplied assets, sequential or simulated interaction, sound effect, audio-coupled idea, and transition.
 
@@ -101,7 +101,7 @@ Write:
 
 `remotion-brief.md` is the approved build handoff. Write it using [references/remotion-brief-template.md](references/remotion-brief-template.md). `scene-spec.json` is the structured technical companion: IDs, names, transcript timing, frame ranges, components, assets, visual behavior, and sound effects.
 
-Call the bundled `scene-builder` skill internally with the approved `flick-plan.md`, `remotion-brief.md`, `scene-spec.json`, and selected assets. The builder owns the custom components, independent composition registrations, render verification, and Studio review.
+Build from the approved `flick-plan.md`, `remotion-brief.md`, `scene-spec.json`, and selected assets. Create custom components, register independent compositions, verify renders, and open Studio for review.
 
 Build one named Remotion composition per approved scene under `<output-directory>/remotion/src/scenes/`. Register each independently in `Root.tsx`; do not create an all-scenes composition. Use frame-driven Remotion motion and copy only selected user brand assets into the Remotion public folder.
 

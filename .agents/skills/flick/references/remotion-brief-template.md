@@ -1,6 +1,6 @@
 # Remotion Composition Brief Template
 
-Write `<output-directory>/remotion-brief.md` after the user approves `flick-plan.md` and before writing scene components. This is the handoff from Flick to the Remotion scene builder. It must preserve the approved plan; do not add new creative direction.
+Write `<output-directory>/remotion-brief.md` after the user approves `flick-plan.md` and before writing scene components. This is Flick's handoff to the Remotion implementation. It must preserve the approved plan; do not add new creative direction.
 
 ```md
 # Remotion Composition Brief: Flick
