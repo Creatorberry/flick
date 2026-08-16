@@ -38,38 +38,19 @@ def main():
             stdout=subprocess.DEVNULL,
             stderr=subprocess.DEVNULL,
         )
-
         try:
             import whisper
         except ImportError as error:
-            raise SystemExit("Install openai-whisper before transcribing: pip install openai-whisper") from error
-
-        model = whisper.load_model(args.model)
-        result = model.transcribe(
-            str(wav),
-            language=args.language,
+            raise SystemExit("Whisper is not installed. Run Flick bootstrap first.") from error
+        result = whisper.load_model(args.model).transcribe(
+            str(wav), language=args.language,
             task="translate" if args.translate else "transcribe",
-            word_timestamps=True,
-            verbose=False,
+            word_timestamps=True, verbose=False,
         )
 
-    segments = [
-        {"startMs": milliseconds(segment["start"]), "endMs": milliseconds(segment["end"]), "text": segment["text"].strip()}
-        for segment in result["segments"]
-    ]
-    words = [
-        {"startMs": milliseconds(word["start"]), "endMs": milliseconds(word["end"]), "text": word["word"].strip()}
-        for segment in result["segments"]
-        for word in segment.get("words", [])
-        if word["word"].strip()
-    ]
-    payload = {
-        "source": str(source),
-        "language": result.get("language"),
-        "text": result["text"].strip(),
-        "segments": segments,
-        "words": words,
-    }
+    segments = [{"startMs": milliseconds(s["start"]), "endMs": milliseconds(s["end"]), "text": s["text"].strip()} for s in result["segments"]]
+    words = [{"startMs": milliseconds(w["start"]), "endMs": milliseconds(w["end"]), "text": w["word"].strip()} for s in result["segments"] for w in s.get("words", []) if w["word"].strip()]
+    payload = {"source": str(source), "language": result.get("language"), "text": result["text"].strip(), "segments": segments, "words": words}
     Path(args.output).write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"Wrote {args.output} ({len(segments)} segments, {len(words)} words)")
 

@@ -25,4 +25,4 @@ await writeFile(
 
 console.log(`Flick workspace created: ${project}`);
 console.log(`Add brand files to: ${resolve(project, 'brand-assets')}`);
-console.log('Next: install dependencies with npm install, then start Remotion Studio with npm run studio.');
+console.log('Next: run bootstrap.mjs to install the project dependencies, then start Remotion Studio with npm run studio.');

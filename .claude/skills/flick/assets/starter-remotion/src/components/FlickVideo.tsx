@@ -21,7 +21,7 @@ export type FlickSceneSpec = {
 export const getDurationInFrames = (spec: FlickSceneSpec) =>
   Math.max(1, ...spec.scenes.map((scene) => scene.from + scene.durationInFrames));
 
-const FlickSceneView: FC<{scene: FlickScene}> = ({scene}) => {
+export const FlickSceneView: FC<{scene: FlickScene}> = ({scene}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
   const enter = spring({frame, fps, config: {damping: 180}});

@@ -1,5 +1,10 @@
 {
   "name": "flick",
   "version": "0.1.0",
-  "description": "Turn a video or script into a reviewable Remotion short."
+  "description": "Turn a video, transcript, or script into a reviewable Remotion animation.",
+  "author": {"name": "Creatorberry"},
+  "license": "MIT",
+  "homepage": "https://www.creatorberry.com/",
+  "repository": "https://github.com/Creatorberry/flick",
+  "keywords": ["remotion", "animation", "video", "skill"]
 }

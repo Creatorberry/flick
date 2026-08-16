@@ -20,18 +20,20 @@ def main():
     parser.add_argument("--model", default="base")
     parser.add_argument("--language")
     parser.add_argument("--translate", action="store_true")
+    parser.add_argument("--ffmpeg", default="ffmpeg")
     args = parser.parse_args()
 
     source = Path(args.source).resolve()
     if not source.is_file():
         raise SystemExit(f"Media file not found: {source}")
-    if not shutil.which("ffmpeg"):
-        raise SystemExit("FFmpeg is required and must be available on PATH.")
+    ffmpeg = args.ffmpeg
+    if not Path(ffmpeg).is_file() and not shutil.which(ffmpeg):
+        raise SystemExit("FFmpeg was not found. Run Flick bootstrap first.")
 
     with tempfile.TemporaryDirectory(prefix="flick-transcribe-") as tmp:
         wav = Path(tmp) / "audio.wav"
         subprocess.run(
-            ["ffmpeg", "-y", "-i", str(source), "-vn", "-ac", "1", "-ar", "16000", "-c:a", "pcm_s16le", str(wav)],
+            [ffmpeg, "-y", "-i", str(source), "-vn", "-ac", "1", "-ar", "16000", "-c:a", "pcm_s16le", str(wav)],
             check=True,
             stdout=subprocess.DEVNULL,
             stderr=subprocess.DEVNULL,

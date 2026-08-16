@@ -5,6 +5,7 @@ out/
 *.log
 __pycache__/
 flick-project/
+flick-*/
 !flick-project/.gitkeep
 **/brand-assets/*
 !**/brand-assets/.gitkeep

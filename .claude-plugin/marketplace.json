@@ -1,0 +1,8 @@
+{
+  "name": "flick",
+  "description": "Turn a video, transcript, or script into a reviewable Remotion animation.",
+  "owner": {"name": "Creatorberry", "url": "https://www.creatorberry.com/"},
+  "plugins": [
+    {"name": "flick", "source": "./", "description": "Create original motion animation with Remotion."}
+  ]
+}

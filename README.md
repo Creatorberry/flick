@@ -2,7 +2,7 @@
 
 Turn a source video or script into a reviewable short-form animation with an AI video director.
 
-Flick is an open-source skill pack for Codex and Claude Code. It transcribes a supplied video when needed, asks the creative questions that shape the edit, writes a portable scene spec, builds a Remotion project, and opens Remotion Studio for review.
+Flick is one open-source skill for Codex and Claude Code. It transcribes a supplied video when needed, asks the creative questions that shape the edit, builds a portable Remotion project, and opens Remotion Studio for review.
 
 ## The workflow
 
@@ -18,30 +18,46 @@ See the [Flick examples gallery](examples/) for six animations made with Flick, 
 
 ## Install
 
-Install the `flick`, `transcript-extractor`, `scene-generator`, and `scene-builder` skills from this repository with your agent's skills installer. The repository exposes the canonical skills in `skills/`; `.agents/skills/` and `.claude/skills/` point to the same sources for Codex and Claude Code discovery.
+### Claude Code
+
+```text
+/plugin marketplace add Creatorberry/flick
+/plugin install flick@flick
+```
+
+Then run `/flick`.
+
+### Codex
+
+```text
+npx skills add Creatorberry/flick --skill flick --agent codex --global --yes
+```
+
+Then ask: `Use $flick to animate this.`
+
+The installer copies Flick. On the first `/flick` run, Flick creates a local project and installs Remotion, a bundled FFmpeg binary, Whisper, and yt-dlp automatically. Node.js 20+, Python 3, and network access are required for that first run.
 
 ## Use
 
-Ask your agent:
+In Claude Code:
 
 ```text
-Use Flick to turn this video into a 9:16 animated short.
+/flick
 ```
 
-Or start with a script:
+In Codex:
 
 ```text
-Use Flick to animate this script. I have a logo and screenshots to use.
+Use $flick to animate this script. I have a logo and screenshots to use.
 ```
 
-Flick creates a `flick-project/` workspace containing `brand-assets/`, `saved-animations/`, a timestamped `transcript.json`, `scene-spec.json`, and a runnable Remotion project.
+Flick creates a timestamped workspace containing `brand-assets/`, `saved-animations/`, a timestamped `transcript.json` when needed, `scene-spec.json`, scene previews, and a runnable Remotion project.
 
 ## Requirements
 
 - Node.js 20+
-- FFmpeg on `PATH`
-- Remotion (installed by the generated project)
-- `yt-dlp` and Whisper for video-link transcription
+- Python 3
+- Network access for the first-run dependency install
 
 ## Privacy and source material
 
