@@ -35,6 +35,7 @@ flick-output/
   brand-assets/
   remotion/
   scenes/[approved-scene-name]/[approved-scene-name].mp4
+  scenes/[approved-scene-name]/poster.jpg
   saved-animations/
 ```
 

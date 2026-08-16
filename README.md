@@ -63,6 +63,7 @@ flick-output/
   scenes/
     [approved-scene-name]/
       [approved-scene-name].mp4
+      poster.jpg
   saved-animations/
 ```
 
