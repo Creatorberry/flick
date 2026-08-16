@@ -4,7 +4,7 @@ import {dirname, resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const names = ['flick'];
+const names = ['flick', 'transcript-extractor', 'scene-generator', 'scene-builder'];
 
 for (const agentPath of ['.agents/skills', '.claude/skills']) {
   for (const name of names) {

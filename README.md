@@ -31,10 +31,10 @@ Then run `/flick`.
 ### Codex
 
 ```text
-npx skills add Creatorberry/flick --skill flick --agent codex --global --yes
+npx skills add Creatorberry/flick --skill flick --skill transcript-extractor --skill scene-generator --skill scene-builder --agent codex --global --yes
 ```
 
-Then ask: `Use $flick to animate this.`
+Then ask: `Use $flick to animate this.` You install the three supporting skills once, but invoke only `$flick`.
 
 ## First run
 
