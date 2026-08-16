@@ -54,7 +54,7 @@ Transition:
 
 ## Planning scenes from the transcript
 
-Split scenes from natural transcript beats. The transcript defines spoken timing; do not ask for a duration or force Brag's 15–25 second structure.
+Split scenes from natural transcript beats. The transcript defines spoken timing; do not ask for a duration or force a fixed scene length.
 
 For every transcript line, plan a visual proof of what that line says. The scene must make the spoken idea clearer, not merely decorate it.
 
