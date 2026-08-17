@@ -1,5 +1,7 @@
 # Flick
 
+![Flick — Your script, in motion](assets/flick-hero.gif)
+
 Turn a video, link, or transcript into original short-form scene animations with an AI motion director.
 
 An open-source project from [Creatorberry](https://www.creatorberry.com/).
