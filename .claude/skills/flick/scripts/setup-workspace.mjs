@@ -20,7 +20,6 @@ await mkdir(project, {recursive: true});
 await Promise.all([
   mkdir(resolve(project, 'brand-assets')),
   mkdir(resolve(project, 'scenes')),
-  mkdir(resolve(project, 'saved-animations')),
 ]);
 await cp(template, resolve(project, 'remotion'), {recursive: true});
 await writeFile(

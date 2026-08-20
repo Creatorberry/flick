@@ -47,10 +47,10 @@ After posters are created, ask:
 For each selected scene, run:
 
 ```text
-node <flick-skill>/scripts/save-animation.mjs --library <flick-skill>/saved-animations --name <approved-scene-name> --component <component.tsx> --pattern "<exact visual pattern>" --use-for "<strong-fit use cases>" --avoid-for "<mismatched use cases>"
+node <flick-skill>/scripts/save-animation.mjs --library <flick-skill>/saved-animations --name <approved-scene-name> --component <component.tsx> --export <component-export> --include <local-helper.tsx> --pattern "<exact visual pattern>" --use-for "<strong-fit use cases>" --avoid-for "<mismatched use cases>"
 ```
 
-This saves only the editable component in `<flick-skill>/saved-animations/<approved-scene-name>/` and appends one compact entry to the shared catalog at `<flick-skill>/saved-animations/README.md`. Read that catalog first whenever deciding what can be reused. Reuse is optional: create a new scene when no entry is a strong fit. Do not save MP4s, posters, or private brand assets in the shared library.
+Use `--include` once for each required local `.ts` or `.tsx` helper. This saves only editable code in `<flick-skill>/saved-animations/<approved-scene-name>/` and appends one compact entry to the shared catalog at `<flick-skill>/saved-animations/README.md`. Read that catalog first whenever deciding what can be reused. Reuse is optional: create a new scene when no entry is a strong fit. Do not save MP4s, posters, or private brand assets in the shared library.
 
 ## Final delivery
 

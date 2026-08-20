@@ -10,8 +10,12 @@ flick-*/
 **/brand-assets/*
 !**/brand-assets/.gitkeep
 **/saved-animations/*
-!saved-animations/
-!saved-animations/**
+!skills/flick/saved-animations/
+!skills/flick/saved-animations/**
+!.agents/skills/flick/saved-animations/
+!.agents/skills/flick/saved-animations/**
+!.claude/skills/flick/saved-animations/
+!.claude/skills/flick/saved-animations/**
 !**/saved-animations/.gitkeep
 **/transcript.json
 **/scene-spec.json

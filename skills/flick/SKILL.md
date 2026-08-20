@@ -40,7 +40,7 @@ flick-output/
 
 ## Reusable animation library
 
-Before planning, read `<flick-skill>/saved-animations/README.md`. It is Flick's shared library of editable scene templates. Use an entry only when its visual pattern clearly fits the requested scene. If nothing is a strong fit, create a new scene.
+Flick installs `<flick-skill>/saved-animations/` automatically. Before planning, read `<flick-skill>/saved-animations/README.md`. It is Flick's shared library of editable scene templates. Use an entry only when its visual pattern clearly fits the requested scene. If nothing is a strong fit, create a new scene.
 
 Do not open every component. After identifying a strong catalog match, inspect only that component folder and adapt it with the current transcript and approved assets. Do not reuse private or project-specific imagery from a template.
 
@@ -131,7 +131,7 @@ On feedback, revise only the affected scene, render that scene again, and reopen
 
 > Which scene animations should I save as reusable assets?
 
-Save each selected scene's editable component under `<flick-skill>/saved-animations/[approved-scene-name]/`. Do not save MP4s, posters, or private brand assets in the shared library.
+Save each selected scene's editable component, plus any required local `.ts` or `.tsx` companion files, under `<flick-skill>/saved-animations/[approved-scene-name]/`. Do not save MP4s, posters, or private brand assets in the shared library.
 
 ## Creative laws
 

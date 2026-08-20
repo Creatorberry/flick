@@ -1,46 +1,52 @@
 #!/usr/bin/env node
-import {cp, mkdir, readFile, readdir, writeFile} from 'node:fs/promises';
+import {appendFile, cp, mkdir, stat} from 'node:fs/promises';
 import {basename, resolve} from 'node:path';
 
 const args = process.argv.slice(2);
 const valueAfter = (flag) => args[args.indexOf(flag) + 1];
-const project = valueAfter('--project');
+const library = valueAfter('--library');
 const name = valueAfter('--name');
 const component = valueAfter('--component');
-const preview = valueAfter('--preview');
-const poster = valueAfter('--poster');
-const description = valueAfter('--description');
+const componentExport = valueAfter('--export');
+const pattern = valueAfter('--pattern');
+const useFor = valueAfter('--use-for');
+const avoidFor = valueAfter('--avoid-for');
+const includes = args.flatMap((arg, index) => arg === '--include' ? [args[index + 1]] : []).filter(Boolean);
 
-if (!project || !name || !component || !preview || !description?.trim()) {
-  throw new Error('Usage: node save-animation.mjs --project <path> --name <kebab-name> --component <file.tsx> --preview <scene.mp4> --description <generic-description>');
+if (!library || !name || !component || !componentExport || !pattern?.trim() || !useFor?.trim() || !avoidFor?.trim()) {
+  throw new Error('Usage: node save-animation.mjs --library <saved-animations> --name <kebab-name> --component <file.tsx> --export <component-export> [--include <local-helper.tsx>] --pattern <visual-pattern> --use-for <strong-fit-use-cases> --avoid-for <mismatched-use-cases>');
 }
 if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(name)) {
   throw new Error('Use a lowercase kebab-case animation name.');
 }
+if (!(await stat(component)).isFile()) {
+  throw new Error(`Component not found: ${component}`);
+}
+for (const included of includes) {
+  if (!/\.(?:ts|tsx)$/i.test(included)) {
+    throw new Error(`Only local .ts or .tsx helpers can be saved: ${included}`);
+  }
+  if (!(await stat(included)).isFile()) {
+    throw new Error(`Included helper not found: ${included}`);
+  }
+}
 
-const target = resolve(project, 'saved-animations', name);
+const target = resolve(library, name);
 await mkdir(target, {recursive: true});
 await cp(component, resolve(target, basename(component)));
-await cp(preview, resolve(target, 'preview.mp4'));
-if (poster) await cp(poster, resolve(target, 'poster.jpg'));
-await writeFile(
-  resolve(target, 'metadata.json'),
-  JSON.stringify({name, component: basename(component), savedAt: new Date().toISOString(), preview: 'preview.mp4', poster: poster ? 'poster.jpg' : null, description: description.trim()}, null, 2) + '\n',
-);
-
-const savedRoot = resolve(project, 'saved-animations');
-const folders = await readdir(savedRoot, {withFileTypes: true});
-const entries = await Promise.all(folders.filter((folder) => folder.isDirectory()).map(async (folder) => {
-  try {
-    return JSON.parse(await readFile(resolve(savedRoot, folder.name, 'metadata.json'), 'utf8'));
-  } catch {
-    return null;
-  }
-}));
-const catalog = entries.filter(Boolean).sort((a, b) => a.name.localeCompare(b.name));
-const lines = ['# Saved Animations', '', 'Read this file before reusing an animation. Choose a matching entry, then open only that component folder.', ''];
-for (const entry of catalog) {
-  lines.push(`## ${entry.name}`, `- Component: \`${entry.name}/${entry.component}\``, `- Preview: \`${entry.name}/${entry.preview}\``, `- Poster: \`${entry.name}/${entry.poster ?? 'none'}\``, `- What it does: ${entry.description ?? 'No reusable description recorded.'}`, '');
+for (const included of includes) {
+  await cp(included, resolve(target, basename(included)));
 }
-await writeFile(resolve(savedRoot, 'README.md'), `${lines.join('\n')}\n`);
-console.log(`Saved reusable animation: ${target}`);
+
+const entry = [
+  '',
+  `## ${name}`,
+  `**File:** \`${name}/${basename(component)}\``,
+  `**Export:** \`${componentExport}\``,
+  `**Pattern:** ${pattern.trim()}`,
+  `**Use for:** ${useFor.trim()}`,
+  `**Avoid for:** ${avoidFor.trim()}`,
+  '',
+].join('\n');
+await appendFile(resolve(library, 'README.md'), entry);
+console.log(`Saved editable animation component: ${target}`);
