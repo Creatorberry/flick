@@ -66,11 +66,13 @@ flick-output/
     [approved-scene-name]/
       [approved-scene-name].mp4
       poster.jpg
-  saved-animations/
-    README.md
 ```
 
 `flick-plan.md` is the compact scene plan you approve. `remotion-brief.md` and `scene-spec.json` are the build instructions. Each approved transcript scene becomes a separately named Remotion animation.
+
+## Reusable animation library
+
+Flick includes editable Remotion templates in [`saved-animations/`](saved-animations/). Before building, Flick reads that folder's catalog and reuses a template only when its visual pattern clearly fits the requested scene.
 
 ## Review and reuse
 

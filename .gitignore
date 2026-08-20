@@ -10,6 +10,8 @@ flick-*/
 **/brand-assets/*
 !**/brand-assets/.gitkeep
 **/saved-animations/*
+!saved-animations/
+!saved-animations/**
 !**/saved-animations/.gitkeep
 **/transcript.json
 **/scene-spec.json

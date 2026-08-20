@@ -47,10 +47,10 @@ After posters are created, ask:
 For each selected scene, run:
 
 ```text
-node <flick-skill>/scripts/save-animation.mjs --project <output-directory> --name <approved-scene-name> --component <component.tsx> --preview <scene.mp4> --poster <poster.jpg> --description "<generic description of how and what this animation does>"
+node <flick-skill>/scripts/save-animation.mjs --library <flick-skill>/saved-animations --name <approved-scene-name> --component <component.tsx> --pattern "<exact visual pattern>" --use-for "<strong-fit use cases>" --avoid-for "<mismatched use cases>"
 ```
 
-This saves the component, rendered preview, poster, and metadata in `saved-animations/<approved-scene-name>/`. It also creates or updates the single catalog file at `saved-animations/README.md`. That README lists every saved animation, its component filename, and its generic visual behavior. Read it first whenever deciding what can be reused. Do not save private brand assets unless the user explicitly requests it.
+This saves only the editable component in `<flick-skill>/saved-animations/<approved-scene-name>/` and appends one compact entry to the shared catalog at `<flick-skill>/saved-animations/README.md`. Read that catalog first whenever deciding what can be reused. Reuse is optional: create a new scene when no entry is a strong fit. Do not save MP4s, posters, or private brand assets in the shared library.
 
 ## Final delivery
 
@@ -58,5 +58,5 @@ Tell the user:
 
 - the path to every rendered scene MP4;
 - the path to every `poster.jpg`;
-- which scenes were saved under `saved-animations/`;
+- which editable components were saved under `<flick-skill>/saved-animations/`;
 - that a future revision changes only the named scene.

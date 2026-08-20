@@ -36,8 +36,13 @@ flick-output/
   remotion/
   scenes/[approved-scene-name]/[approved-scene-name].mp4
   scenes/[approved-scene-name]/poster.jpg
-  saved-animations/README.md
 ```
+
+## Reusable animation library
+
+Before planning, read `<flick-skill>/saved-animations/README.md`. It is Flick's shared library of editable scene templates. Use an entry only when its visual pattern clearly fits the requested scene. If nothing is a strong fit, create a new scene.
+
+Do not open every component. After identifying a strong catalog match, inspect only that component folder and adapt it with the current transcript and approved assets. Do not reuse private or project-specific imagery from a template.
 
 ## Workspace setup
 
@@ -104,7 +109,7 @@ Write:
 
 Build from the approved `flick-plan.md`, `remotion-brief.md`, `scene-spec.json`, and selected assets. Create custom components, register independent compositions, verify renders, and open Studio for review.
 
-If `<output-directory>/saved-animations/README.md` exists, read it before building. It is the catalog of reusable animations. Select a compatible entry first, then inspect only that entry's component folder before deciding to reuse it.
+Use the shared catalog read at the start of the run. Select a compatible entry only when it is a strong fit, then inspect only that entry's component folder before deciding to adapt it. If no entry is a strong fit, build an original scene.
 
 Build one named Remotion composition per approved scene under `<output-directory>/remotion/src/scenes/`. Register each independently in `Root.tsx`; do not create an all-scenes composition. Use frame-driven Remotion motion and copy only selected user brand assets into the Remotion public folder.
 
@@ -126,7 +131,7 @@ On feedback, revise only the affected scene, render that scene again, and reopen
 
 > Which scene animations should I save as reusable assets?
 
-Save each selected scene's component, rendered preview, and metadata under `saved-animations/[approved-scene-name]/`.
+Save each selected scene's editable component under `<flick-skill>/saved-animations/[approved-scene-name]/`. Do not save MP4s, posters, or private brand assets in the shared library.
 
 ## Creative laws
 
