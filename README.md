@@ -33,7 +33,7 @@ Then run `/flick`.
 ### Codex
 
 ```text
-npx skills add Creatorberry/flick --skill flick --skill transcript-extractor --agent codex --global --yes
+npx skills add Creatorberry/flick --skill flick --agent codex --global --yes
 ```
 
 Then ask: `Use $flick to animate this.`

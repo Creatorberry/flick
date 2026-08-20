@@ -62,7 +62,7 @@ Ask exactly:
 
 > Send a video/link to transcribe, or paste a transcript.
 
-If the user provides a local video or public video URL, call the bundled `transcript-extractor` skill internally. Use Flick's bundled extractor implementation:
+If the user provides a local video or public video URL, use Flick's bundled timestamped-transcript pipeline:
 
 ```text
 node <flick-skill>/scripts/transcribe.mjs --source <file-or-url> --project <output-directory>
