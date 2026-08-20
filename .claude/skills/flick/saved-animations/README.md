@@ -1,87 +1,103 @@
 # Saved animations
 
-Read this catalog before building a scene. Reuse an asset only when its visual pattern is a strong match for the requested scene. If no entry clearly fits, create a new scene. Templates may reference original images or frame sequences that are not bundled; replace them with allowed current assets when adapting a template.
+Read this catalog before building a scene. Reuse a template only when its visual pattern is a strong match. If no entry clearly fits, create a new scene.
+
+Every template is self-contained: it has no bundled screenshots, logos, videos, or private media. Replace its generic copy and neutral shapes with the current user's approved material when adapting it.
 
 ## ocr-model-card-over-page
-**File:** `ocr-model-card-over-page/UnlimitedOcrScene1Hook.tsx`  
-**Pattern:** A vertically scrolling full-page website sits behind a large tilted image card. A short title appears above the card, then the card slides away.  
-**Use for:** Introducing one model, product, result, or visual example over its supporting website/page.  
-**Avoid for:** A scene without a page background or without one central visual card.
+**File:** `ocr-model-card-over-page/ProductCardOverPage.tsx`
+**Export:** `ProductCardOverPage`
+**Pattern:** A subtle scrolling page/grid sits behind a large focal card that enters, settles, then exits.
+**Use for:** One product, result, visual example, or key idea over supporting page context.
+**Avoid for:** A scene without a central card or supporting page context.
 
 ## token-waste-terminal
-**File:** `token-waste-terminal/ClaudeTokenWasteHook.tsx`  
-**Pattern:** A dark coding terminal comes into focus. A simple prompt is entered, a long response fills the terminal, and an animated token count grows as the view zooms toward it.  
-**Use for:** Showing excessive AI output, token growth, slow reasoning, or a simple task becoming unnecessarily expensive.  
-**Avoid for:** Showing a successful workflow, multiple tools, or a non-terminal product reveal.
+**File:** `token-waste-terminal/TerminalCostEscalation.tsx`
+**Export:** `TerminalCostEscalation`
+**Pattern:** A terminal types a simple request, its response grows, then a resource metric takes focus.
+**Use for:** Excessive output, cost growth, slow reasoning, or a simple task becoming expensive.
+**Avoid for:** A successful workflow, multiple-tool process, or non-terminal reveal.
 
 ## tool-constellation-merge
-**File:** `tool-constellation-merge/DesignSystemsSkillsScenes.tsx` — `DesignSystemsScene1Constellation`  
-**Pattern:** A central branded tile appears on an orange grid. Three surrounding logo tiles pop in, orbit toward the center, and disappear into it as the center tile glows.  
-**Use for:** Showing several tools, skills, integrations, or sources combining into one central product or capability.  
-**Avoid for:** A sequential workflow, detailed UI demonstration, or a scene that needs readable multi-step information.
+**File:** `tool-constellation-merge/ToolConstellationMerge.tsx`
+**Export:** `ToolConstellationMerge`
+**Pattern:** Three input tiles arrive, orbit inward, and merge into one central capability.
+**Use for:** Tools, skills, sources, or inputs combining into one capability.
+**Avoid for:** A sequential workflow or detailed UI demonstration.
 
 ## agent-role-showcase
-**File:** `agent-role-showcase/AgentsBuiltInScene.tsx`  
-**Pattern:** A swarm of small agent terminals appears beneath a large “100 Agents” title. The swarm fades back and four large terminals take focus one at a time: planning, design review, release, and QA.  
-**Use for:** Showing a product with many built-in agents or clearly separated specialist roles.  
-**Avoid for:** A single-agent task, a short linear workflow, or a scene without distinct roles.
+**File:** `agent-role-showcase/AgentRoleShowcase.tsx`
+**Export:** `AgentRoleShowcase`
+**Pattern:** Four specialist role cards enter and take focus one at a time.
+**Use for:** Distinct roles, agents, or team capabilities.
+**Avoid for:** One isolated task or a linear workflow.
 
 ## source-to-authority-to-install
-**File:** `source-to-authority-to-install/GstackRevealCeoInstall.tsx`  
-**Pattern:** A scrolling source/repository page with a featured card appears first. It cuts to a person/authority card, then to a terminal where one installation command is typed and completes.  
-**Use for:** Introducing a tool through its source, creator/authority, and installation moment.  
-**Avoid for:** A generic product overview, a page without an install action, or a scene that should not feature a person.
+**File:** `source-to-authority-to-install/SourceAuthorityInstall.tsx`
+**Export:** `SourceAuthorityInstall`
+**Pattern:** A source page, authority card, and install command appear as three successive beats.
+**Use for:** Introducing a tool through source, creator/team, and installation.
+**Avoid for:** A generic overview without an install action.
 
 ## connected-workflow-terminals
-**File:** `connected-workflow-terminals/WorkflowStartToFinishScene.tsx`  
-**Pattern:** Three terminal cards appear diagonally on a light canvas. Dotted, animated connector paths move from planning to design review to release, while each terminal types its own task and result.  
-**Use for:** Showing a clear handoff workflow across planning, design, development, review, testing, or release stages.  
-**Avoid for:** A role swarm, one isolated task, or a workflow that is not sequential.
+**File:** `connected-workflow-terminals/ConnectedWorkflowTerminals.tsx`
+**Export:** `ConnectedWorkflowTerminals`
+**Pattern:** Three terminal cards are connected by an animated dotted workflow path.
+**Use for:** Sequential handoffs across planning, creation, review, testing, or release.
+**Avoid for:** A role swarm or one isolated task.
 
 ## fast-page-scroll
-**File:** `fast-page-scroll/FlickGithubDarkFastScroll.tsx`  
-**Pattern:** A framed dark page rapidly scrolls through a captured screenshot sequence. The same short scroll repeats four times.  
-**Use for:** Creating fast momentum around a real captured website, repository, dashboard, or long page.  
-**Avoid for:** Explaining specific page details, because the scroll is intentionally too fast to read.
+**File:** `fast-page-scroll/FastPageScroll.tsx`
+**Export:** `FastPageScroll`
+**Pattern:** A framed page rapidly scrolls through neutral content blocks.
+**Use for:** Fast momentum around a supplied website, dashboard, repository, or long page.
+**Avoid for:** Explaining readable page details.
 
 ## page-card-to-header-zoom
-**File:** `page-card-to-header-zoom/BragScene1Hook.tsx`  
-**Pattern:** A full-page website screenshot sits behind a large floating promotional card. The card exits, then the camera pushes into the page header while a progress bar advances.  
-**Use for:** Moving from a visual product/promo card into a destination page or website header.  
-**Avoid for:** A scene without a page capture, promotional card, or destination-page reveal.
+**File:** `page-card-to-header-zoom/PageCardHeaderZoom.tsx`
+**Export:** `PageCardHeaderZoom`
+**Pattern:** A large promo card exits, then the camera pushes into a destination-page heading.
+**Use for:** Moving from a promise or card into a page/header reveal.
+**Avoid for:** A scene without a card-to-destination transition.
 
 ## two-tools-to-video-frames
-**File:** `two-tools-to-video-frames/ClaudeVideoSkillsScenes.tsx` — `ClaudeVideoScene2TwoSkills`  
-**Pattern:** Two separate tool cards appear, converge toward a central input-video card, then three extracted video-frame thumbnails appear underneath.  
-**Use for:** Showing two tools or capabilities working together to turn a video into usable frames or visual material.  
-**Avoid for:** A single-tool process, document processing, or a workflow with more than two primary inputs.
+**File:** `two-tools-to-video-frames/TwoToolsToFrames.tsx`
+**Export:** `TwoToolsToFrames`
+**Pattern:** Two tool cards converge into an input-video card, then three frame cards appear.
+**Use for:** Two capabilities working together to turn video into visual material.
+**Avoid for:** A single-tool process or a non-video input.
 
 ## video-to-frames
-**File:** `video-to-frames/ClaudeVideoSkillsScenes.tsx` — `ClaudeVideoScene4RipFrames`  
-**Pattern:** A vertical video card is scanned, shrinks into a central processing block, and produces four individual frame thumbnails.  
-**Use for:** Showing video inspection, frame extraction, visual analysis, or turning one video into multiple stills.  
-**Avoid for:** Document conversion, website browsing, or a workflow that does not begin with video.
+**File:** `video-to-frames/VideoToFrames.tsx`
+**Export:** `VideoToFrames`
+**Pattern:** A vertical video card is scanned, processed, and split into four frame cards.
+**Use for:** Video inspection, frame extraction, visual analysis, or one-to-many conversion.
+**Avoid for:** A document or website workflow.
 
 ## pdf-token-limit
-**File:** `pdf-token-limit/MarkitdownScene1Hook.tsx`  
-**Pattern:** A cursor selects a PDF in a terminal, types a request to summarize it, then the terminal shows document processing and a large token count. The view blurs into a “USAGE LIMIT REACHED” message before cutting to a source-page/card reveal.  
-**Use for:** Showing an oversized document, expensive PDF processing, token exhaustion, or a document workflow hitting a limit.  
-**Avoid for:** A positive document-processing result, a video workflow, or a scene without a document/input-file problem.
+**File:** `pdf-token-limit/DocumentLimitTerminal.tsx`
+**Export:** `DocumentLimitTerminal`
+**Pattern:** A document is processed in a terminal until a large limit message takes focus.
+**Use for:** Large documents, expensive processing, or an input hitting a limit.
+**Avoid for:** A positive processing result or video workflow.
 
 ## content-carousel
-**File:** `content-carousel/SceneCanvaContentCarousel.tsx`  
-**Pattern:** Five tall content cards move horizontally through a 3D carousel. The active card is enlarged in front, its blurred image fills the background, and progress indicators move below.  
-**Use for:** Showing a sequence of carousel slides, content designs, post concepts, or multiple visual examples.  
-**Avoid for:** One static image, a terminal workflow, or a scene requiring readable small details on every slide.
+**File:** `content-carousel/ContentCarousel.tsx`
+**Export:** `ContentCarousel`
+**Pattern:** Five tall cards move through a depth-based carousel with one active card and progress dots.
+**Use for:** Carousel slides, post concepts, content designs, or multiple visual examples.
+**Avoid for:** One static image or a terminal workflow.
 
 ## website-resource-reveal
-**File:** `website-resource-reveal/SceneKarpathyGithubRepoHighlight.tsx`  
-**Pattern:** A dark editorial page reveal: title is highlighted, then brief context, two callouts, and a short structured list appear.  
-**Use for:** Introducing one website, resource, tool, guide, framework, or product page.  
-**Avoid for:** Real screen recordings, product comparisons, workflows, or abstract visual concepts.
+**File:** `website-resource-reveal/WebsiteResourceReveal.tsx`
+**Export:** `WebsiteResourceReveal`
+**Pattern:** A dark editorial page reveals a title, short explanation, and three structured callouts.
+**Use for:** One website, resource, tool, guide, framework, or product page.
+**Avoid for:** A real screen recording or workflow demonstration.
 
 ## page-scroll-and-title-focus
-**File:** `page-scroll-and-title-focus/GraphifyApprovedScenes.tsx` — `GraphifyScene1`  
-**Pattern:** A captured page appears inside a framed screen with a blurred matching background. A large circular logo enters and exits while the page scrolls, then the camera zooms into the page header and highlights one title area.  
-**Use for:** Introducing a captured product, website, repository, or page and ending on one important heading or label.  
-**Avoid for:** A scene without a captured page, a workflow demonstration, or a page where no single heading needs emphasis.
+**File:** `page-scroll-and-title-focus/PageScrollTitleFocus.tsx`
+**Export:** `PageScrollTitleFocus`
+**Pattern:** A framed page scrolls, then the camera zooms into and highlights one important heading.
+**Use for:** Introducing a supplied page and ending on one important title or label.
+**Avoid for:** A workflow demonstration or a page with no focal heading.

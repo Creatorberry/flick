@@ -72,7 +72,7 @@ flick-output/
 
 ## Reusable animation library
 
-Flick installs editable Remotion templates in [`skills/flick/saved-animations/`](skills/flick/saved-animations/). Before building, Flick reads that folder's catalog and reuses a template only when its visual pattern clearly fits the requested scene.
+Flick installs editable Remotion templates in [`skills/flick/saved-animations/`](skills/flick/saved-animations/). They use neutral shapes and copy—no private screenshots, logos, or media—so Flick can adapt a strong-fit pattern with the current user's approved material. Before building, Flick reads that folder's catalog and reuses a template only when its visual pattern clearly fits the requested scene.
 
 ## Review and reuse
 
