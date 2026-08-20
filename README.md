@@ -1,6 +1,6 @@
 # Flick
 
-![Flick — Your script, in motion](assets/flick-hero.gif)
+![Flick — Your script, in motion](assets/flick-hero.gif?v=6f607b4)
 
 Turn a video, link, or transcript into original short-form scene animations with an AI motion director.
 
