@@ -30,6 +30,17 @@ There is no background music. Flick uses bundled sound effects only when they ma
 
 Then run `/flick`.
 
+### Updates
+
+To receive Flick updates automatically, open `/plugin`, choose **Marketplaces**, select **flick**, and enable auto-update. Claude Code will check for updates when it starts; run `/reload-plugins` when it asks you to activate an update.
+
+To update manually instead:
+
+```text
+/plugin update flick@flick
+/reload-plugins
+```
+
 ### Codex
 
 ```text
@@ -37,6 +48,12 @@ npx skills add Creatorberry/flick --skill flick --agent codex --global --yes
 ```
 
 Then ask: `Use $flick to animate this.`
+
+Update later:
+
+```text
+npx skills update
+```
 
 ## First run
 
