@@ -4,7 +4,7 @@
 
 Turn a video, link, or transcript into original short-form scene animations with an AI motion director.
 
-An open-source project from [Creatorberry](https://www.creatorberry.com/).
+An open-source project from [Creatorberry](https://www.creatorberry.com/?utm_source=github&utm_medium=opensource&utm_campaign=flick).
 
 ## What Flick does
 
@@ -97,7 +97,7 @@ Flick renders each scene, opens the individual scene compositions in Remotion St
 
 ## Start with the right source
 
-Flick turns source material into motion animation. If you need to find source content or develop an idea first, [Creatorberry](https://www.creatorberry.com/) helps you find what is viral, script it, and post it.
+Flick turns source material into motion animation. If you need to find source content or develop an idea first, [Creatorberry](https://www.creatorberry.com/?utm_source=github&utm_medium=opensource&utm_campaign=flick) helps you find what is viral, script it, and post it.
 
 ## Examples
 
@@ -117,4 +117,4 @@ MIT
 
 ---
 
-Built by [Creatorberry](https://www.creatorberry.com/).
+Built by [Creatorberry](https://www.creatorberry.com/?utm_source=github&utm_medium=opensource&utm_campaign=flick).
