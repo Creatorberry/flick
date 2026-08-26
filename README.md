@@ -55,6 +55,20 @@ Update later:
 npx skills update
 ```
 
+### Other agent CLIs
+
+For Grok Build, Gemini CLI, OpenCode, Cursor, Cline, and other compatible agents:
+
+```text
+npx skills add Creatorberry/flick --skill flick --global
+```
+
+Follow the prompts to install Flick in your agent. To update it later:
+
+```text
+npx skills update -g
+```
+
 ## First run
 
 The first Flick run creates a local `flick-output/` workspace and installs:
